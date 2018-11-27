@@ -1,5 +1,8 @@
 class ThingsController < ApplicationController
-  before_action :set_thing, only: [:show, :edit, :destroy]
+
+before_action :set_thing, only: [:show, :edit, :update, :destroy]
+
+
 
   def index
     @things = Thing.all
@@ -26,6 +29,11 @@ class ThingsController < ApplicationController
   end
 
   def update
+    if @thing.update(thing_params)
+      redirect_to thing_path(@thing)
+    else
+      render :edit
+    end
   end
 
   def destroy
