@@ -1,11 +1,9 @@
 class ThingsController < ApplicationController
-
-before_action :set_thing, only: [:show, :edit, :update, :destroy]
-
-
+  before_action :set_thing, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @things = Thing.all
+    @things = policy_scope(Thing).order(created_at: :desc)
   end
 
   def show
@@ -13,11 +11,13 @@ before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   def new
     @thing = Thing.new
+    authorize @thing
   end
 
   def create
     @thing = Thing.new(thing_params)
     @thing.owner = current_user
+    authorize @thing
     if @thing.save
       redirect_to thing_path(@thing)
     else
@@ -49,5 +49,6 @@ before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   def set_thing
     @thing = Thing.find(params[:id])
+    authorize @thing
   end
 end

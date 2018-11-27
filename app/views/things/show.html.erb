@@ -1,15 +1,26 @@
-<h1>Objet à louer</h1>
 <div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-6">
-			<h1><%= @thing.title %></h1>
-			<ul>
-				<li><p><%= @thing.description %></p></li>
-				<li><p><%= @thing.price %></p></li>
-				<li><p><%= @thing.photo %></p></li>
-				<li>"map à ajouter"</li>
-			<li>"formulaire de réservation à afficher"</li>
-
-			</ul>
-						<%= link_to "Retour à la liste de tous les objets", root_path %>
-		</div>
+  <h1>Objet à louer</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h1><%= @thing.title %></h1>
+      <ul>
+        <li><p><%= @thing.description %></p></li>
+        <li><p><%= @thing.price %></p></li>
+        <li><p><%= @thing.photo %></p></li>
+        <li>"map à ajouter"</li>
+        <li>"formulaire de réservation à afficher"</li>
+        <li>
+        <% if policy(@thing).edit? %>
+          <%= link_to "Mettre à jour", edit_thing_path(@thing) %>
+        <% end %>
+        </li>
+        <li>
+        <% if policy(@thing).destroy? %>
+          <%= link_to "Supprimer", edit_thing_path(@thing) %>
+        <% end %>
+        </li>
+      </ul>
+      <%= link_to "Retour à la liste de tous les objets", things_path %>
+    </div>
+  </div>
+</div>
