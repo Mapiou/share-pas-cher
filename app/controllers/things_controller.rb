@@ -2,6 +2,7 @@ class ThingsController < ApplicationController
 before_action :set_thing, only: [:show, :edit, :destroy]
 
   def index
+    @things = Thing.all
   end
 
   def show
