@@ -1,5 +1,5 @@
 class ThingsController < ApplicationController
-before_action :set_thing, only: [:show, :edit, :destroy]
+  before_action :set_thing, only: [:show, :edit, :destroy]
 
   def index
     @things = Thing.all
@@ -9,9 +9,17 @@ before_action :set_thing, only: [:show, :edit, :destroy]
   end
 
   def new
+    @thing = Thing.new
   end
 
   def create
+    @thing = Thing.new(thing_params)
+    @thing.owner = current_user
+    if @thing.save
+      redirect_to thing_path(@thing)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -21,6 +29,8 @@ before_action :set_thing, only: [:show, :edit, :destroy]
   end
 
   def destroy
+    @thing.destroy
+    redirect_to things_path
   end
 
   private
@@ -32,5 +42,4 @@ before_action :set_thing, only: [:show, :edit, :destroy]
   def set_thing
     @thing = Thing.find(params[:id])
   end
-
 end
