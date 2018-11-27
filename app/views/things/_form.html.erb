@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Ajouter un nouvel objet à louer</h1>
+
+      <%= simple_form_for @thing do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo %>
+        <%= f.input :street %>
+        <%= f.input :zip_code %>
+        <%= f.input :city %>
+        <%= f.input :country %>
+        <%= f.input :category %>
+        <%= f.input :days_nb_min %>
+        <%= f.input :days_nb_max %>
+        <%= f.input :starting_available_date, as: :date, html5: true%>
+        <%= f.input :ending_available_date, as: :date, html5: true%>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

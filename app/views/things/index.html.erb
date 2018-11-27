@@ -1,2 +1,35 @@
-<h1>Things#index</h1>
-<p>Find me in app/views/things/index.html.erb</p>
+<h1>Liste des objets</h1>
+<div class="container">
+	<div class="row">
+		<div class="row">
+			<% @things.each do |thing| %>
+			<div class="col-xs-12 col-sm-6 col-md-3">
+
+					<ul>
+						<li><h3><%= thing.title %></h3></li>
+						<li><p><%= thing.description %></p></li>
+						<li><p><%= thing.photo %></p></li>
+						<li><p><%= thing.price %> €</p></li>
+						<li><p><%= thing.street %></p></li>
+						<li><p><%= thing.zip_code %></p></li>
+						<li><p><%= thing.city %></p></li>
+						<li><p><%= thing.country %></p></li>
+						<li><p><%= thing.category %></p></li>
+						<li><p><%= thing.days_nb_min %> jours</p></li>
+						<li><p><%= thing.days_nb_max %>  jours</p></li>
+						<li><p><%= thing.starting_available_date %></p></li>
+						<li><p><%= thing.ending_available_date %></p></li>
+						<li><p><%= thing.owner.first_name %></p></li>
+						<li><p><%= thing.owner.last_name %></p></li>
+						<li><p><%= thing.owner.phone %></p></li>
+						<li><p><%= thing.owner.email %></p></li>
+					</ul>
+				</div>
+			</div>
+			<%= link_to "", thing_path(thing), class: 'card-link' %>
+		</div>
+	</div>
+	<% end %>
+</div>
+</div>
+</div>
