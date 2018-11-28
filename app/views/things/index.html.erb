@@ -3,25 +3,19 @@
   <div class="row">
     <% @things.each do |thing| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <ul>
-        <li><h3><%= link_to thing.title, thing_path(thing) %></h3></li>
-        <li><p><%= thing.description %></p></li>
-        <li><p><%= thing.photo %></p></li>
-        <li><p><%= thing.price %> €</p></li>
-        <li><p><%= thing.street %></p></li>
-        <li><p><%= thing.zip_code %></p></li>
-        <li><p><%= thing.city %></p></li>
-        <li><p><%= thing.country %></p></li>
-        <li><p><%= thing.category %></p></li>
-        <li><p><%= thing.days_nb_min %> jours</p></li>
-        <li><p><%= thing.days_nb_max %>  jours</p></li>
-        <li><p><%= thing.starting_available_date %></p></li>
-        <li><p><%= thing.ending_available_date %></p></li>
-        <li><p><%= thing.owner.first_name %></p></li>
-        <li><p><%= thing.owner.last_name %></p></li>
-        <li><p><%= thing.owner.phone %></p></li>
-        <li><p><%= thing.owner.email %></p></li>
-        </ul>
+        <div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= thing.photo %>')">
+          <div class="card-category"><%= thing.category %></div>
+          <div class="card-description">
+            <h2><%= thing.title %> | <%= thing.price %>€</h2>
+            <p><%= thing.description %></p>
+          </div>
+
+          <%= link_to "", thing_path(thing), class: "card-link" %>
+        </div>
+
+
       </div>
     <% end %>
   </div>

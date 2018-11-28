@@ -4,5 +4,7 @@ class Thing < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many :users, through: :bookings
 
+  mount_uploader :photo, PhotoUploader
+
   validates :title, presence: true
 end
