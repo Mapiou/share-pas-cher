@@ -10,7 +10,7 @@
         <%= f.input :zip_code %>
         <%= f.input :city %>
         <%= f.input :country %>
-        <%= f.input :category %>
+        <%= f.input :category, collection: Thing::CATEGORY_LIST %>
         <%= f.input :days_nb_min %>
         <%= f.input :days_nb_max %>
         <%= f.input :starting_available_date, as: :date, html5: true%>
