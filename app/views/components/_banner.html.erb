@@ -1,0 +1,9 @@
+<div class="banner">
+  <div class="banner-content">
+    <h1>Share pas cher</h1>
+    <p>L'app pour partager simplement ses objets ménagers</p>
+    <% if policy(Thing).create? %>
+      <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
+    <% end %>
+  </div>
+</div>
