@@ -5,70 +5,174 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleaning database"
+
 Review.destroy_all
 Booking.destroy_all
-
 Thing.destroy_all
 User.destroy_all
 
-puts "building users"
+puts "Creating users..."
 
-piero = User.new(first_name:"piero", last_name:"gatto", email:"nonnonnon@lewagon.fr", phone:"0764524265", password:"sicilianstyle")
-margot = User.new(first_name:"margot", last_name:"grelier", email:"ouioui@lewagon.fr", password:"ponystyle")
+piero = User.new(first_name:"piero", last_name:"gatto", email:"piero@lewagon.fr", password:"sicilianstyle")
+margot = User.new(first_name:"margot", last_name:"grelier", email:"margot@lewagon.fr", password:"ponystyle")
 marion = User.new(first_name:"marion", last_name:"lambert", email:"marion@lewagon.fr", password:"catstyle")
 piero.save!
 margot.save!
 marion.save!
 
-puts "users created successfully"
+puts "Users created successfully!"
 
-puts "creating fullseed piero"
+puts 'Creating things...'
 
-perceuse = Thing.new(title:"perceuse", owner: piero, description:"perceuse multi fonction, adaptée à tous les supports",
-photo:"belle_photo", price:"5 euros par jour", street:"place 4 septembre", zip_code:"13007", city:"Marseille",
-country:"France", category:"outillage", days_nb_min:"1",
-days_nb_max:"7", starting_available_date:"maintenant", ending_available_date: "demain" )
+things_attributes = [
+  {
+    title: "Arc & Cible",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Maison & Déco",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: piero
+  },
+  {
+    title: "Arc & Flèches",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Evénement",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: margot
+  },
+  {
+    title: "Aspirateur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Matériel de jardin",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: marion
+  },
+  {
+    title: "Bazooka",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Evénement",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: piero
+  },
+  {
+    title: "Perçeuse",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Outillage & Travaux",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: piero
+  },
+  {
+    title: "Sapin",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Maison & Déco",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: margot
+  },
+  {
+    title: "Aspirateur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    price: 10,
+    street: "23 rue Paradis",
+    zip_code: "13006",
+    city: "Marseille",
+    country: "France",
+    category: "Electroménager",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: marion
+  }
+]
 
-puts "fullseed piero successfully created"
+Thing.create!(things_attributes)
 
-puts "creating other stuff"
+puts "Things created successfully!"
 
-diable = Thing.new(title:"diable", owner: piero)
-chaises = Thing.new(title:"chaises", owner: margot)
-poubelles = Thing.new(title:"poubelles", owner: margot)
-raclette = Thing.new(title:"raclette", owner: marion)
-sapin = Thing.new(title:"sapin", owner: marion)
-perceuse.save!
-chaises.save!
-raclette.save!
-diable.save!
-sapin.save!
-poubelles.save!
+# puts "Creating things"
 
-puts "other stuff created"
+# perceuse = Thing.new(title:"perceuse", owner: piero, description:"perceuse multi fonction, adaptée à tous les supports",
+# photo:"belle_photo", price:"5 euros par jour", street:"place 4 septembre", zip_code:"13007", city:"Marseille",
+# country:"France", category:"outillage", days_nb_min:"1",
+# days_nb_max:"7", starting_available_date:"maintenant", ending_available_date: "demain" )
 
-puts "creating booking seeds"
+# diable = Thing.new(title:"diable", owner: piero)
+# chaises = Thing.new(title:"chaises", owner: margot)
+# poubelles = Thing.new(title:"poubelles", owner: margot)
+# raclette = Thing.new(title:"raclette", owner: marion)
+# sapin = Thing.new(title:"sapin", owner: marion)
+# perceuse.save!
+# chaises.save!
+# raclette.save!
+# diable.save!
+# sapin.save!
+# poubelles.save!
 
-book1 = Booking.new(user: marion, thing: chaises)
-book2 = Booking.new(user: piero, thing: raclette)
-book3 = Booking.new(user: margot, thing: perceuse)
-book4 = Booking.new(user: margot, thing: raclette)
-book5 = Booking.new(user: marion, thing: perceuse)
+# puts "other stuff created"
+
+puts "Creating bookings..."
+
+thing1 = Thing.first
+thing2 = Thing.last
+book1 = Booking.new(user: marion, thing: thing1)
+book2 = Booking.new(user: piero, thing: thing2)
 book1.save!
 book2.save!
-book3.save!
-book4.save!
-book5.save!
 
-"puts reviews created"
-
-puts "creating reviews seed"
+puts "Creating reviews"
 
 review1 = Review.new(comment: "c'est trop chouette", booking: book1)
-review2 = Review.new(comment: "c'est de la merde", booking: book3)
-review3 = Review.new(comment: "j'ai vomi", booking: book5)
-review3.save!
-review2.save!
+review2 = Review.new(comment: "c'est de la merde", booking: book2)
 review1.save!
+review2.save!
 
 puts "reviews created"
