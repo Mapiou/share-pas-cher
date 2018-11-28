@@ -6,7 +6,7 @@
       <ul>
         <li><p><%= @thing.description %></p></li>
         <li><p><%= @thing.price %></p></li>
-        <li><p><%= @thing.photo %></p></li>
+        <li><p class="card-img"><%= cl_image_tag @thing.photo, height: 300, width: 400, crop: :fill %></p></li>
         <li>"map à ajouter"</li>
         <li>"formulaire de réservation à afficher"</li>
         <li>
