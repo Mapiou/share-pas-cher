@@ -1,5 +1,5 @@
 class Thing < ApplicationRecord
-  CATEGORY_LIST = ['Outillage & Travaux', 'Matériel de jardin', 'Electroménager', 'Maison & Déco', 'Evénement', 'High Tech']
+  CATEGORY_LIST = ['Outillage & Travaux', 'Matériel de jardin', 'Electroménager', 'Maison & Déco', 'Evénement', 'High Tech', 'Loisirs']
 
   belongs_to :owner, class_name: "User", foreign_key: :user_id
   has_many :bookings, dependent: :destroy

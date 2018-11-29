@@ -1,0 +1,11 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Réserver cet objet : <%= @thing.title %></h1>
+    </div>
+  </div>
+
+  <%= render 'booking_form', thing: @thing, booking: @booking %>
+
+</div>
