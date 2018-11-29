@@ -6,20 +6,26 @@
         <h1><%= @thing.title %></h1>
       </div>
       <div class="col-xs-6">
-        <h2 style="text-align: right"><%= @thing.price %></h2>
+        <h2 style="text-align: right"><%= @thing.price %>€</h2>
       </div>
     </div>
+
     <div class="col-xs-6" style="text-align: justify">
       <p class="card-text mb-auto"><%= @thing.description %></p>
       <p>Disponible à partir du <%= @thing.starting_available_date %></p>
+
       <% if policy(@thing).edit? %>
         <%= link_to "Mettre à jour", edit_thing_path(@thing), class: "btn btn-warning btn-sm" %>
       <% end %>
       <% if policy(@thing).destroy? %>
-        <%= link_to "Supprimer", edit_thing_path(@thing), class: "btn btn-warning btn-sm"%>
+        <%= link_to "Supprimer", thing_path(@thing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-warning btn-sm"%>
+      <% else %>
+        <%= link_to "Réserver cet objet", new_thing_booking_path(@thing), class: "btn btn-warning btn-sm"%>
       <% end %>
+
       <p><%= link_to "<< Retour à la liste de tous les objets", things_path %></p>
     </div>
+
     <div class="col-xs-6">
       <p class="card-img"><%= cl_image_tag @thing.photo.url(:bright_face), style:"width:100%"%></p>
     </div>

@@ -5,5 +5,6 @@
     <% if policy(Thing).create? %>
       <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
     <% end %>
+    <%= link_to "Chercher un objet", things_path, class: "btn btn-info btn-lg"%>
   </div>
 </div>

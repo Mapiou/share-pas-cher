@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1>Liste de mes objets</h1>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li><%= booking.thing.title %></li>
+    <% end %>
+  </ul>
+
+  <h1>Liste de mes réservations</h1>
+  <ul>
+    <% @things.each do |thing| %>
+      <li><%= thing.title %></li>
+    <% end %>
+  </ul>
+
+</div>
