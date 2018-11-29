@@ -4,6 +4,14 @@ class ThingsController < ApplicationController
 
   def index
     @things = policy_scope(Thing).order(created_at: :desc)
+    @things = Thing.where.not(latitude: nil, longitude: nil)
+    @markers = @things.map do |thing|
+      {
+        lng: thing.longitude,
+        lat: thing.latitude,
+        infoWindow: { content: render_to_string(partial: "/things/map_window", locals: { thing: thing }) }
+      }
+    end
   end
 
   def show
@@ -44,7 +52,7 @@ class ThingsController < ApplicationController
   private
 
   def thing_params
-    params.require(:thing).permit(:title, :description, :photo, :price, :street, :zip_code, :city, :country, :category, :days_nb_min, :days_nb_max, :starting_available_date, :ending_available_date)
+    params.require(:thing).permit(:title, :description, :photo, :price, :address, :category, :days_nb_min, :days_nb_max, :starting_available_date, :ending_available_date)
   end
 
   def set_thing
