@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'geocoder'
 gem 'devise'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
