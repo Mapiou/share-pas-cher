@@ -1,5 +1,6 @@
 class Thing < ApplicationRecord
   CATEGORY_LIST = ['Outillage & Travaux', 'Matériel de jardin', 'Electroménager', 'Maison & Déco', 'Evénement', 'High Tech', 'Loisirs']
+  include PgSearch
 
   belongs_to :owner, class_name: "User", foreign_key: :user_id
   has_many :bookings, dependent: :destroy
@@ -12,4 +13,10 @@ class Thing < ApplicationRecord
 
   validates :title, presence: true
   validates :category, inclusion: { in: Thing::CATEGORY_LIST }
+
+  pg_search_scope :search_by_title,
+    against: [ :title],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

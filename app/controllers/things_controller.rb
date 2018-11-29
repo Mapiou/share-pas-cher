@@ -3,8 +3,12 @@ class ThingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @things = policy_scope(Thing).order(created_at: :desc)
-    @things = Thing.where.not(latitude: nil, longitude: nil)
+    @things = policy_scope(Thing)
+      .where.not(latitude: nil, longitude: nil)
+      .order(created_at: :desc)
+    if params[:query].present?
+      @things = @things.search_by_title(params[:query])
+    end
     @markers = @things.map do |thing|
       {
         lng: thing.longitude,

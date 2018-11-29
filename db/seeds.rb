@@ -31,6 +31,7 @@ things_attributes = [
     title: "Arc & Cible",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     price: 10,
+    remote_photo_url: 'https://image.darty.com/petit_electromenager/aspirateur-avec_sac_sans_sac/aspirateur_sans_sac/rowenta_ro6941ea_p1609064253965A_101345944.jpg',
     address: "23 rue Paradis Marseille",
     category: "Maison & Déco",
     days_nb_min: 1,
