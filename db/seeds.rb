@@ -28,12 +28,12 @@ puts 'Creating things...'
 
 things_attributes = [
   {
-    title: "Arc & Cible",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "Sabre Laser rouge",
+    description: "Ayant renoncé au côté obscur de la force, je me sépare de mon précieux sabre",
     price: 10,
-    remote_photo_url: 'https://image.darty.com/petit_electromenager/aspirateur-avec_sac_sans_sac/aspirateur_sans_sac/rowenta_ro6941ea_p1609064253965A_101345944.jpg',
+    remote_photo_url: 'https://static.hitek.fr/img/actualite/2017/03/13/fb_star-wars-signifient-couleurs-sabres-lasers-53955.jpg',
     address: "23 rue Paradis Marseille",
-    category: "Maison & Déco",
+    category: "High Tech",
     days_nb_min: 1,
     days_nb_max: 7,
     starting_available_date: "2018-11-01",
@@ -41,9 +41,10 @@ things_attributes = [
     owner: piero
   },
   {
-    title: "Arc & Flèches",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    price: 10,
+    title: "Appareil à raclette",
+    description: "Un incontournable de vos soirées d'hiver, (max 8 personnes, raclette non fournie*)",
+    price: 8,
+    remote_photo_url: 'https://www.appareil-raclette.com/wp-content/uploads/2016/10/Appareil-%C3%A0-raclette-Tefal-RE138012.jpg',
     address: "23 rue Paradis Marseille",
     category: "Evénement",
     days_nb_min: 1,
@@ -53,10 +54,11 @@ things_attributes = [
     owner: marion
   },
   {
-    title: "Aspirateur",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "Karsher Sarko",
+    description: "Karsher de marque Hongroise, très bonne qualité!",
     price: 10,
-    address: "26 rue Paradis Marseille",
+    remote_photo_url: 'https://images-na.ssl-images-amazon.com/images/I/81aXGujSwJL._SL1500_.jpg',
+    address: "26 rue Paradis Nantes",
     category: "Matériel de jardin",
     days_nb_min: 1,
     days_nb_max: 7,
@@ -65,10 +67,11 @@ things_attributes = [
     owner: marion
   },
   {
-    title: "Bazooka",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    title: "Ballon de volley Wilson",
+    description: "Un compagnon fidèle pour vous accompagner, pensez à le regonfler après",
     price: 10,
-    address: "28 rue Paradis Marseille",
+    remote_photo_url: 'https://www.avantjetaisriche.com/wp-content/uploads/2017/01/Ballon-wilson-seul-au-monde-film.jpg',
+    address: "Lyon",
     category: "Evénement",
     days_nb_min: 1,
     days_nb_max: 7,
@@ -77,10 +80,11 @@ things_attributes = [
     owner: piero
   },
   {
-    title: "Perçeuse",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    price: 10,
-    address: "30 rue Paradis Marseille",
+    title: "Gants de boxe",
+    description: "Adriennnneeeeeeeeeeeeeeeeeeeeeeeeeeee!",
+    price: 30,
+    remote_photo_url: 'https://www.ballecourbe.ca/wp-content/uploads/2018/11/maxresdefault-1-960x540.jpg',
+    address: "New York",
     category: "Outillage & Travaux",
     days_nb_min: 1,
     days_nb_max: 7,
@@ -90,8 +94,9 @@ things_attributes = [
   },
   {
     title: "Sapin",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    price: 10,
+    description: "Sapin de Nöel artificiel pour des fêtes réussies, guirlandes fournies",
+    price: 20,
+    remote_photo_url: 'https://i.pinimg.com/originals/03/8e/6c/038e6cb9ebb917333fcb0a5d0952ef9e.jpg',
     address: "32 rue Paradis Marseille",
     category: "Maison & Déco",
     days_nb_min: 1,
@@ -100,17 +105,32 @@ things_attributes = [
     owner: margot
   },
   {
-    title: "Aspirateur",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    price: 10,
-    address: "34 rue Paradis Marseille",
+    title: "Voiture Dolorean",
+    description: "fonctionne avec thermo réacteur à fusion gamma, un plein = 1 barre d'uranium",
+    price: 1000,
+    remote_photo_url: 'https://i2.cdscdn.com/pdt2/6/5/2/1/700x700/wel4045591010652/rw/delorean-retour-vers-le-futur-1-24-welly.jpg',
+    address: "Las Vegas",
     category: "Electroménager",
     days_nb_min: 1,
     days_nb_max: 7,
     starting_available_date: "2018-11-01",
     ending_available_date: "2019-06-01",
     owner: marion
+  },
+    {
+    title: "Gants taille-haies",
+    description: "Superbe gants ergonomiques pour tailler les haies, validés par Fred Krueger et Edward main d'argent!",
+    price: 10,
+    remote_photo_url: 'https://cdn.deguisetoi.fr/images/rep_art/gra/171/7/171704/gant-luxe-freddy-krueger-adulte_171704.jpg',
+    address: "hollywood studios",
+    category: "Outillage & Travaux",
+    days_nb_min: 1,
+    days_nb_max: 7,
+    starting_available_date: "2018-11-01",
+    ending_available_date: "2019-06-01",
+    owner: marion
   }
+
 ]
 
 Thing.create!(things_attributes)
