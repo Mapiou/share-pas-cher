@@ -2,16 +2,17 @@
   <div class="banner-content">
     <h1>Share pas cher</h1>
     <p>L'app pour partager simplement ses objets ménagers</p>
-    <% if policy(Thing).create? %>
-      <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
-    <% end %>
-    <%= form_tag things_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Trouver un objet"
-      %>
-    <% end %>
-    <%= link_to "Chercher un objet", things_path, class: "btn btn-info btn-lg"%>
+    <div>
+      <% if policy(Thing).create? %>
+        <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
+      <% end %>
+      <%= form_tag things_path, class: "search-form", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Trouver un objet"
+        %>
+      <% end %>
+    </div>
   </div>
 </div>

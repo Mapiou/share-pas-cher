@@ -26,3 +26,13 @@
 .banner .btn {
   margin: 10px;
 }
+
+.banner-content div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.search-form input {
+  height: 50px;
+}
