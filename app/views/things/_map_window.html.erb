@@ -1,5 +1,5 @@
-<h2><%= thing.title %></h2>
-<p><%= thing.category %></p>
-<p><%= thing.price%></p>
-<%= cl_image_tag thing.photo %>
+<h6><strong><%= link_to thing.title, thing_path(thing)%></strong></h6>
+<p><%= thing.category %>
+<br><%= thing.price%>€</p>
+
 

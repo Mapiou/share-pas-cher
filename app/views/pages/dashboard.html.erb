@@ -6,7 +6,7 @@
       <h2 class="dashboard-title">Liste de mes réservations :</h2>
       <ul class="dashboard-list">
         <% @bookings.each do |booking| %>
-          <li><%= link_to booking.thing.title, thing_path(booking.thing) %><%= booking.arrival_date %> - <%= booking.departure_date %></li>
+          <li><%= link_to booking.thing.title, thing_path(booking.thing) %> du <%= booking.arrival_date %> au <%= booking.departure_date %></li>
         <% end %>
       </ul>
       <h2 class="dashboard-title">Liste de mes objets :</h2>

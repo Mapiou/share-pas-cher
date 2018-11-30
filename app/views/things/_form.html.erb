@@ -1,18 +1,18 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <%= simple_form_for thing do |f| %>
-        <%= f.input :title %>
+        <%= f.input :title,label: "Nom de l'objet"  %>
         <%= f.input :description %>
-        <%= f.input :price %>
+        <%= f.input :price,label: "Prix"  %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.input :address %>
-        <%= f.input :category, collection: Thing::CATEGORY_LIST %>
-        <%= f.input :days_nb_min %>
-        <%= f.input :days_nb_max %>
-        <%= f.input :starting_available_date, as: :date, html5: true %>
-        <%= f.input :ending_available_date, as: :date, html5: true %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
+        <%= f.input :address,label: "Adresse"  %>
+        <%= f.input :category, collection: Thing::CATEGORY_LIST, label: "Catégorie"  %>
+        <%= f.input :days_nb_min, label: "Jour minimum de location"  %>
+        <%= f.input :days_nb_max, label: "Jour maximum de location"  %>
+        <%= f.input :starting_available_date, as: :date, html5: true, label: "Début de disponibilité"  %>
+        <%= f.input :ending_available_date, as: :date, html5: true, label: "Fin de disponibilité"  %>
+        <%= f.button :submit, "Enregistrer mon objet", class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
