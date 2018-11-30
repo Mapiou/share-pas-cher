@@ -12,7 +12,8 @@ class Thing < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :title, presence: true
-  validates :category, inclusion: { in: Thing::CATEGORY_LIST }
+  validates :category, presence: true, inclusion: { in: Thing::CATEGORY_LIST }
+  validates :address, presence: true
 
   pg_search_scope :search_by_title,
     against: [ :title],

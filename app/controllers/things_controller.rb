@@ -8,6 +8,8 @@ class ThingsController < ApplicationController
       .order(created_at: :desc)
     if params[:query].present?
       @things = @things.search_by_title(params[:query])
+    else
+      @things
     end
     @markers = @things.map do |thing|
       {

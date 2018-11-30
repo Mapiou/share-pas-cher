@@ -1,31 +1,28 @@
-<h1>Liste des objets</h1>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <% @things.each do |thing| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="card"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= thing.photo %>')">
-          <div class="card-category"><%= thing.category %></div>
-          <div class="card-description">
-            <h2><%= thing.title %> | <%= thing.price %>€</h2>
+    <div class="col-xs-12 col-sm-7">
+      <% @things.each do |thing| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+           url('<%= thing.photo %>')">
+            <div class="card-category"><%= thing.category %></div>
+            <div class="card-description">
+              <h2><%= thing.title %> | <%= thing.price %>€</h2>
+            </div>
+
+            <%= link_to "", thing_path(thing), class: "card-link" %>
           </div>
-
-          <%= link_to "", thing_path(thing), class: "card-link" %>
         </div>
-
-
+      <% end %>
+      <% if policy(Thing).create? %>
+        <%= link_to "Ajouter un objet", new_thing_path %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" >
       </div>
-    <% end %>
+    </div>
   </div>
-  <% if policy(Thing).create? %>
-    <%= link_to "Ajouter un objet", new_thing_path %>
-  <% end %>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+
 </div>
