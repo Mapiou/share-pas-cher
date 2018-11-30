@@ -162,8 +162,8 @@ puts "Creating bookings..."
 
 thing1 = Thing.first
 thing2 = Thing.last
-book1 = Booking.new(user: marion, thing: thing1)
-book2 = Booking.new(user: piero, thing: thing2)
+book1 = Booking.new(user: marion, thing: thing1,arrival_date: "2018-11-01",departure_date: "2018-11-04")
+book2 = Booking.new(user: piero, thing: thing2,arrival_date: "2018-11-12",departure_date: "2018-11-20")
 book1.save!
 book2.save!
 
