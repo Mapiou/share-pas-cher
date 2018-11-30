@@ -1,17 +1,20 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1>Mon dashboard</h1>
 
-  <h1>Liste de mes réservations</h1>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li><%= booking.thing.title %></li>
-    <% end %>
-  </ul>
-
-  <h1>Liste de mes objets</h1>
-  <ul>
-    <% @things.each do |thing| %>
-      <li><%= thing.title %></li>
-    <% end %>
-  </ul>
-
+      <h2 class="dashboard-title">Liste de mes réservations :</h2>
+      <ul class="dashboard-list">
+        <% @bookings.each do |booking| %>
+          <li><%= link_to booking.thing.title, thing_path(booking.thing) %><%= booking.arrival_date %> - <%= booking.departure_date %></li>
+        <% end %>
+      </ul>
+      <h2 class="dashboard-title">Liste de mes objets :</h2>
+      <ul class="dashboard-list">
+        <% @things.each do |thing| %>
+          <li><%= link_to thing.title, thing_path(thing) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
