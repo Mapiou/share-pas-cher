@@ -6,6 +6,7 @@
       <% if policy(Thing).create? %>
         <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
       <% end %>
+      <p> ou </p>
       <%= form_tag things_path, class: "search-form", method: :get do %>
         <%= text_field_tag :query,
           params[:query],
