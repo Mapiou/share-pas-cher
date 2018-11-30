@@ -5,6 +5,13 @@
     <% if policy(Thing).create? %>
       <%= link_to "Ajouter un objet", new_thing_path, class: "btn btn-info btn-lg"%>
     <% end %>
+    <%= form_tag things_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Trouver un objet"
+      %>
+    <% end %>
     <%= link_to "Chercher un objet", things_path, class: "btn btn-info btn-lg"%>
   </div>
 </div>
